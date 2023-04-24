@@ -10,8 +10,7 @@ function onTimeUpdate(data) {
     localStorage.setItem('videoplayer-current-time', data.seconds);
 }
 
-window.onload = player.setCurrentTime(localStorage['videoplayer-current-time']).then(function () {
-}).catch(function (error) {
+window.onload = player.setCurrentTime(localStorage['videoplayer-current-time']).then(player.play()).catch(function (error) {
     switch (error.name) {
         case 'RangeError':
             break;
